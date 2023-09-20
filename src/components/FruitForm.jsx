@@ -56,6 +56,7 @@ function FruitForm({ formState, handleChange, handleSubmit}) {
                 <option value="iedere maand">Iedere maand</option>
             </select>
 
+            <h3>Bezorgtijd</h3>
 
             <input
                 type="radio"
