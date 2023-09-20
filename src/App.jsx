@@ -5,6 +5,7 @@ import strawberryImage from "../src/assets/strawberry.svg";
 import bananaImage from "../src/assets/banana.svg";
 import appleImage from "../src/assets/apple.svg";
 import kiwiImage from "../src/assets/kiwi.svg";
+import FruitForm from "./components/FruitForm.jsx";
 
 function App() {
     const initialQuantities = {
@@ -23,9 +24,49 @@ function App() {
         }));
     };
 
-    const handleReset = () => {
+    const resetQuantities = () => {
         setQuantities(initialQuantities);
     };
+
+    const [formState, setFormState] = useState({
+        firstName: "",
+        lastName: "",
+        age: 0,
+        postcode: "",
+        deliveryFrequency: "",
+        deliveryTime: "",
+        remarks: "",
+        agreeTermsAndConditions: false
+    })
+
+    function handleChange(e) {
+
+        const changeFieldName = e.target.name
+        const newValue = e.target.type === "checkbox" ? e.target.checked : e.target.value
+
+        setFormState({
+            ...formState,
+            [changeFieldName]: newValue
+        })
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        console.log(
+            formState.firstName,
+            formState.lastName,
+            formState.age,
+            formState.postcode,
+            formState.deliveryFrequency,
+            formState.deliveryTime,
+            formState.remarks,
+            formState.agreeTermsAndConditions,
+            quantities.strawberry,
+            quantities.banana,
+            quantities.apple,
+            quantities.kiwi
+        )
+    }
 
     return (
         <>
@@ -61,7 +102,14 @@ function App() {
                     onQuantityChange={(newQuantity) => quantityChange("kiwi", newQuantity)}
                 />
 
-                <button type="button" onClick={handleReset}>Reset</button>
+                <button className="reset-button" type="button" onClick={resetQuantities}>Reset</button>
+
+                <FruitForm
+                    formState={formState}
+                    handleChange={handleChange}
+                    handleSubmit={handleSubmit}
+                    resetQuantities={resetQuantities}
+                />
             </main>
         </>
     );
