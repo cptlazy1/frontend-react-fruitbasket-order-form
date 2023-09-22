@@ -25,10 +25,10 @@ function FruitForm({ formState, handleChange, handleSubmit}) {
                 />
                 <label htmlFor="leeftijd">Leeftijd: </label>
                 <input
-                    type="number" //
+
                     id="age"
                     name="age"
-                    value={formState.age}
+                    value={formState.age < 0 ? formState.age = 0 : formState.age}
                     placeholder="0"
                     onChange={handleChange}
                 />
@@ -37,7 +37,7 @@ function FruitForm({ formState, handleChange, handleSubmit}) {
                     type="text"
                     id="postcode"
                     name="postcode"
-                    value={formState.postcode}
+                    value={formState.postcode.length > 6 ? formState.postcode = "" : formState.postcode}
                     placeholder="1234AB"
                     onChange={handleChange}
                 />
