@@ -9,26 +9,29 @@ import logo from "../src/assets/screenshot-logo.png"
 import FruitForm from "./components/FruitForm.jsx";
 
 function App() {
+    // Initiële aantallen worden op nul gezet.
     const initialQuantities = {
         strawberry: 0,
         banana: 0,
         apple: 0,
         kiwi: 0
     };
-
+    // State hoeveelheden
     const [quantities, setQuantities] = useState(initialQuantities);
 
+    // Functie die de hoeveelheid van één fruit aanpast in state
     const quantityChange = (fruit, newQuantity) => {
         setQuantities(prevQuantities => ({
             ...prevQuantities,
             [fruit]: newQuantity
         }));
     };
-
+    // Functie om alle aantallen op nul te zetten
     const resetQuantities = () => {
         setQuantities(initialQuantities);
     };
 
+    // State form
     const [formState, setFormState] = useState({
         firstName: "",
         lastName: "",
@@ -72,7 +75,7 @@ function App() {
     return (
         <>
             <main className="page-container">
-                
+
                 <img src={logo} alt="company-logo"/>
 
                 <Fruit
