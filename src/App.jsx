@@ -5,6 +5,7 @@ import strawberryImage from "../src/assets/strawberry.svg";
 import bananaImage from "../src/assets/banana.svg";
 import appleImage from "../src/assets/apple.svg";
 import kiwiImage from "../src/assets/kiwi.svg";
+import logo from "../src/assets/screenshot-logo.png"
 import FruitForm from "./components/FruitForm.jsx";
 
 function App() {
@@ -71,7 +72,8 @@ function App() {
     return (
         <>
             <main className="page-container">
-                <h1>Fruitmand bezorgservice</h1>
+                
+                <img src={logo} alt="company-logo"/>
 
                 <Fruit
                     fruitImage={strawberryImage}
