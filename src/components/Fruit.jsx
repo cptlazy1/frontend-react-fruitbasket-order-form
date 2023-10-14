@@ -4,12 +4,15 @@ import React from "react";
 
 // eslint-disable-next-line react/prop-types
 function Fruit({ fruitImage, fruitDescription, fruitName, quantity, onQuantityChange }) {
+
+    // Verlaag de hoeveelheid met 1 maar niet lager dan 0
     const decreaseQuantity = () => {
         if (quantity > 0) {
             onQuantityChange(quantity - 1);
         }
     };
 
+    // Verhoog de hoeveelheid  met 1
     const increaseQuantity = () => {
         onQuantityChange(quantity + 1);
     };
